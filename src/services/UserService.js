@@ -48,7 +48,7 @@ const verifyEmail = (payload) => {
 const logout = () => {
     return new Promise(async (resolve, reject) => {
         try {
-            await axios.post(`${SERVER_HOST}/user/logout/`);
+            await axios.post(`${SERVER_HOST}/user/logout/`, { withCredentials: true });
             resolve();
         } catch (err) {
             reject(err.message);

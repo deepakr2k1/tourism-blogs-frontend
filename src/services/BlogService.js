@@ -5,7 +5,7 @@ const getAllBlogs = () => {
     return new Promise(async (resolve, reject) => {
         try {
             let result = await axios.get(`${SERVER_HOST}/blog/`, { withCredentials: true });
-            resolve(result.data.blogs);
+            resolve(result.data.allBlogs);
         } catch (err) {
             reject(err.message);
         }
@@ -16,7 +16,6 @@ const getBlogById = (id) => {
     return new Promise(async (resolve, reject) => {
         try {
             let result = await axios.get(`${SERVER_HOST}/blog/${id}/`, { withCredentials: true });
-            console.log(result.data.blog);
             resolve(result.data);
         } catch (err) {
             reject(err.message);
@@ -27,7 +26,7 @@ const getBlogById = (id) => {
 const createBlog = (blog) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let result = await axios.post(`${SERVER_HOST}/blog/create/`, blog, { withCredentials: true });
+            await axios.post(`${SERVER_HOST}/blog/create/`, blog, { withCredentials: true });
             resolve();
         } catch (err) {
             reject(err.message);
