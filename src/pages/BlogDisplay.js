@@ -27,7 +27,7 @@ export default function BlogDisplay() {
   return (
     <div className="post-page">
       <h1>{ blog.title }</h1>
-      <div className="date">Last updated on { format(new Date(blog.updated_at), 'dd MMM yyyy') }</div>
+      <div className="date">Last updated on { format(new Date(blog.updatedAt), 'dd MMM yyyy') }</div>
       <div className="author">by @{ blog.author.name }</div>
       { user.id === blog.author._id && (
         <div className="edit-row">
