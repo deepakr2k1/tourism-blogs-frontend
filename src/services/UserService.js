@@ -37,7 +37,7 @@ const register = (payload) => {
 const verifyEmail = (payload) => {
     return new Promise(async (resolve, reject) => {
         try {
-            let result = await axios.post(`${SERVER_HOST}/user/verifyEmail/`, payload, { withCredentials: true });
+            let result = await axios.get(`${SERVER_HOST}/user/verifyEmail/`, payload, { withCredentials: true });
             resolve(result.data.user);
         } catch (err) {
             reject(err.message);
